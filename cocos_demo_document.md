@@ -195,7 +195,8 @@ PS: set the horizontal screen manually according to the requirements of the game
         data.vip = "v15";
         //扩展数据， 支付成功回调通知游戏服务器的时候，会原封不动返回这个值
         //Extending the data, when a successful callback is paid to notify the game server, the value is returned intact
-        data.extension="";
+        data.extension="111";
+	data.payNotifyUrl = "1111";
         ASCSDKInterface::getInstance()->pay(data);
     }
 > * 分享、评价、礼包兑换 (Share and evaluate and Gift bag for)
