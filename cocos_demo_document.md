@@ -199,7 +199,7 @@ PS: set the horizontal screen manually according to the requirements of the game
         ASCSDKInterface::getInstance()->pay(data);
     }
 > * 分享、评价、礼包兑换 (Share and evaluate and Gift bag for)
-##### 分享（Share）、评价（Evaluate）、礼包兑换(Gift bag for)
+##### 分享（Share）、评价（Evaluate）、礼包兑换(Gift bag for)、动态价格(Dynamic charging point)
 
     //分享
     //Share
@@ -270,6 +270,32 @@ PS: set the horizontal screen manually according to the requirements of the game
     	//TODO: propNumber为礼包回调道具个数，msg为是礼包兑换消息
     	//TODO: PropNumber is the number of props for the gift package, MSG is the gift exchange
     	message.(if it is 0, the propNumber fails to be sent)
+	//TODO: type 礼包返回道具的类型 The gift pack returns the type of item 
+	if (type.compare("Golds")){
+		//金币 == Golds
+	}
+	else if (type.compare("Diamonds")){
+		//钻石 == Diamonds
+	}
+	else{
+		//其他 == other 
+	}
+    }
+    
+    //动态价格回调
+    //Dynamic charging point
+    void HelloWorld::OnGetProductResult(cocos2d::ValueVector vv){
+	CCLOG("SDK商品回调...");
+	for (size_t i = 0; i < vv.size(); i++)
+	{
+		Value value = vv.at(i);
+		cocos2d::ValueMap json = value.asValueMap();
+		showLog(StringUtils::format("product result billingPoint = %d", json["billingPoint"].asInt()).c_str());
+		showLog(StringUtils::format("product result price = %d", json["price"].asInt()).c_str());
+		showLog(StringUtils::format("product result quantity = %d", json["quantity"].asInt()).c_str());
+
+		price = json["price"].asInt();
+	}
     }
 
 ### 注意事项(Matters needing attention)
