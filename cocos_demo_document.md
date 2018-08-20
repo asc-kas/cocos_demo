@@ -327,12 +327,8 @@ Under the application contains the android: name = "com.asc.sdk.ASCApplication" 
     //失败关卡
     //Failure levels
     ASCSDKInterface.getInstance().failLevel(string num);
-
-    //道具使用统计 item:道具名字，num：消耗数量，price：需要的金币
-    //Item: property name, num: consumption amount, price: needed gold COINS
-    ASCSDKInterface::getInstance()->uploadUserInfo(string item, int num, double price);
-
-    //道具购买统计 item:道具名字，num：购买数量，price：需要的金币
+    
+    //道具使用统计 item:道具名字，num：购买数量，price：需要的金币
     //Item: item name, num: number of items purchased, price: needed gold COINS
     ASCSDKInterface.getInstance().useBoosterInfo(string item, int num, int price);
 
