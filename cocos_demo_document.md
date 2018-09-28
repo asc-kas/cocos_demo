@@ -132,7 +132,7 @@ PS: set the horizontal screen manually according to the requirements of the game
     	if (keyCode == EventKeyboard::KeyCode::KEY_BACK)
     	{
 			//Call the exit confirmation box of the channel, return false, the SDK does not support, the game needs to use its own exit box
-			if (ASCSDKInterface::getInstance()->isSupportExit){
+			if (ASCSDKInterface::getInstance()->isSupportExit()){
 				ASCSDKInterface::getInstance()->sdkExit();
 			}
 			else{
